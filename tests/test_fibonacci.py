@@ -6,7 +6,7 @@ def test1():
     expected = 21
 
     sol = Solution()
-    assert expected == sol.fibonacci(num)
+    assert expected == sol.fib1(num)
 
 
 def test2():
@@ -14,12 +14,12 @@ def test2():
     expected = 2
 
     sol = Solution()
-    assert expected == sol.fibonacci(num)
+    assert expected == sol.fib1(num)
 
 
 def test3():
-    num = 19
-    expected = 4181
+    num = 50
+    expected = 12586269025
 
     sol = Solution()
-    assert expected == sol.fibonacci(num)
+    assert expected == sol.fib1(num)
