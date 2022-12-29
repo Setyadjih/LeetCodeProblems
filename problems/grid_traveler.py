@@ -1,15 +1,20 @@
-"""grid traveler problem, a hidden fibonacci memoization"""
+"""grid traveler problem, a hidden fibonacci memoization. this one implemented with store in function"""
 
 
 class Solution():
-    def __init__(self):
-        self.store = {}
+    def grid_traveler(self, n, m, store=None) -> int:
+        if store is None:
+            store = {}
 
-    def grid_traveler(self, n, m) -> int:
         if n == 1 or m == 1:
             return 1
 
-        if (n, m) not in self.store.keys():
-            self.store[(n, m)] = self.grid_traveler(n-1, m) + self.grid_traveler(n, m-1)
+        # f(a, b) == f(b, a)! since a grid in either shape is the same
+        if (n, m) not in store.keys() or (m, n) not in store.keys():
+            store[(n, m)] = self.grid_traveler(n-1, m, store) + self.grid_traveler(n, m-1, store)
+            store[(m, n)] = store[(n, m)]
 
-        return self.store[(n, m)]
+        if (n, m) in store.keys():
+            return store[n, m]
+        else:
+            return store[m, n]
