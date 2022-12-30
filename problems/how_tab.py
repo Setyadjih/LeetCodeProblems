@@ -22,4 +22,3 @@ def how_tab(target, nums):
 
 if __name__ == '__main__':
     res = how_tab(7, [5, 3, 4])
-    print(res)
